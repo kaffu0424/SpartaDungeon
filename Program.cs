@@ -6,7 +6,7 @@
         {
             while(true)
             {
-
+                SceneManager.Instance.ScenePrint();
             }
         }
     }
