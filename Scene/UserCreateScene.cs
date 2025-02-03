@@ -20,11 +20,17 @@ namespace SpartaDungeon
 
         public override void Print()
         {
+            LoadData();
             CreateName();
             SelectJob();
 
             if (isNameCheck && isJobCheck)
                 SceneManager.Instance.ChangeScene(SceneName.LobbyScene);
+        }
+
+        private void LoadData()
+        {
+            // 데이터 불러오기
         }
 
         private void CreateName()
@@ -53,7 +59,7 @@ namespace SpartaDungeon
                 if(intCommand == 1)
                 {
                     isNameCheck = true;
-                    Player.Instance.Name = name;
+                    Player.Instance.name = name;
                 }
             }
         }
@@ -80,10 +86,10 @@ namespace SpartaDungeon
                 {
                     case 1:
                         isJobCheck = true;
-                        Player.Instance.Job = JobType.Warrior;
+                        Player.Instance.job = JobType.Warrior;
                         break;
                     case 2:
-                        Player.Instance.Job = JobType.Rogue;
+                        Player.Instance.job = JobType.Rogue;
                         isJobCheck = true;
                         break;
                 }
