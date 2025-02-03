@@ -11,19 +11,22 @@ namespace SpartaDungeon
     {
         private Item[] inventory;
 
-        private Armor equipedArmor;
-        private Weapon equipedWeapon;
+        private Armor? equipedArmor;
+        private Weapon? equipedWeapon;
         public Inventory()
         {
             int length = Enum.GetValues(typeof(ItemName)).Length;
             inventory = new Item[length];
 
-            // 아이템 구매 ( 인벤토리 추가 ) 테스트 코드
-            inventory[(int)ItemName.NoviceArmor] =
-                ItemManager.Instance.GetItemReference(ItemName.NoviceArmor);
-            
-            // 아이템 장착 테스트코드
-            equipedArmor = (Armor)inventory[(int)ItemName.NoviceArmor];
+            //// 아이템 구매 ( 인벤토리 추가 ) 테스트 코드
+            //inventory[(int)ItemName.NoviceArmor] =
+            //    ItemManager.Instance.GetItemReference(ItemName.NoviceArmor);
+            //inventory[(int)ItemName.IronArmor] =
+            //    ItemManager.Instance.GetItemReference(ItemName.IronArmor);
+            //inventory[(int)ItemName.BronzeAxe] =
+            //    ItemManager.Instance.GetItemReference(ItemName.BronzeAxe);
+            //// 아이템 장착 테스트코드
+            //equipedArmor = (Armor)inventory[(int)ItemName.NoviceArmor];
         }
 
         public void ShowInventory()
@@ -34,6 +37,7 @@ namespace SpartaDungeon
                     Console.WriteLine(item.ItemInfo());
             }
         }
+
         public void ShowEquip()
         {
             int itemCount = 1;
@@ -67,6 +71,7 @@ namespace SpartaDungeon
 
             Console.WriteLine($"{stat}");
         }
+
         public void WeaponStat()
         {
             string stat = "";
