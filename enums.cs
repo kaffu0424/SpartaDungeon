@@ -22,4 +22,20 @@ namespace SpartaDungeon
         DungeonScene,
         SleepScene
     }
+
+    public enum ItemType
+    {
+        Weapon,
+        Armor
+    }
+
+    public enum ItemName
+    {
+        NoviceArmor,
+        IronArmor,
+        SpartaArmor,
+        OldSword,
+        BronzeAxe,
+        SpartaSpear
+    }
 }
