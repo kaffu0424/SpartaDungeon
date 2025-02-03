@@ -6,32 +6,47 @@ using System.Threading.Tasks;
 
 namespace SpartaDungeon
 {
-    public class Item
+    public abstract class Item
     {
-        public ItemType itemType { get; set; }
         public string itemName { get; set; }
+        public string itemDescription { get; set; }
+        public Item(string _name, string _description) 
+        {
+            itemName = _name;
+            itemDescription = _description;
+        }
+
+        public abstract string ItemInfo();
     }
 
     public class Armor : Item
     {
         public int defense { get; set; }
 
-        public Armor(string _name, int _defense)
+        public Armor(string _name, string _description, int _defense)
+            : base(_name, _description)
         {
-            itemType = ItemType.Armor;
-            itemName = _name;
             defense = _defense;
+        }
+
+        public override string ItemInfo()
+        {
+            return $"{itemName} | 방어력 +{defense} | {itemDescription}";
         }
     }
 
     public class Weapon : Item
     {
         public int damage { get; set; }
-        public Weapon(string _name, int _damage)
+        public Weapon(string _name, string _description, int _damage) 
+            : base(_name, _description)
         {
-            itemType = ItemType.Weapon;
-            itemName = _name;
             damage = _damage;
+        }
+
+        public override string ItemInfo()
+        {
+            return $"{itemName} | 공격력 +{damage} | {itemDescription}";
         }
     }
 }

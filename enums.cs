@@ -23,12 +23,6 @@ namespace SpartaDungeon
         SleepScene
     }
 
-    public enum ItemType
-    {
-        Weapon,
-        Armor
-    }
-
     public enum ItemName
     {
         NoviceArmor,

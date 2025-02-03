@@ -28,10 +28,7 @@ namespace SpartaDungeon
             Console.WriteLine("보유중인 아이템을 관리할 수 있습니다.");
             Console.WriteLine("─────────────────────────");
             Console.WriteLine("[아이템 목록]");
-            for (int i = 0; i < 10; i++)
-            {
-                // 대충 보유중인 아이템들
-            }
+            Player.Instance.inventory.ShowInventory();
             Console.WriteLine("─────────────────────────");
             Console.WriteLine("1. 장착 관리");
             Console.WriteLine("0. 나가기");
@@ -63,10 +60,7 @@ namespace SpartaDungeon
             Console.WriteLine("보유중인 아이템을 관리할 수 있습니다.");
             Console.WriteLine("─────────────────────────");
             Console.WriteLine("[아이템 목록]");
-            for (int i = 0; i < 10; i++)
-            {
-                // 대충 보유중인 아이템들
-            }
+            Player.Instance.inventory.ShowEquip();
             Console.WriteLine("─────────────────────────");
             Console.WriteLine("0. 나가기");
 

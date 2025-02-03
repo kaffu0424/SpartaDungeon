@@ -17,9 +17,17 @@ namespace SpartaDungeon
         public int hp       { get; set; }
         public int gold     { get; set; }
 
+        public Inventory inventory { get; set; }
+
         public Player()
         {
-            
+            level = 1;
+            damage = 10;
+            defense = 5;
+            hp = 100;
+            gold = 1500;
+
+            inventory = new Inventory();
         }
     }
 }
