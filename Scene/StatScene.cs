@@ -16,8 +16,10 @@ namespace SpartaDungeon
             Console.WriteLine("─────────────────────────");
             Console.WriteLine($"Lv. {Player.Instance.level}");
             Console.WriteLine($"{Player.Instance.name} ( {Player.Instance.job} )");
-            Console.WriteLine($"공격력 : {Player.Instance.damage}");
-            Console.WriteLine($"방어력 : {Player.Instance.defense}");
+            Console.Write($"공격력 : {Player.Instance.damage}");
+            Player.Instance.inventory.WeaponStat();
+            Console.Write($"방어력 : {Player.Instance.defense}");
+            Player.Instance.inventory.ArmorStat();
             Console.WriteLine($"체 력 : {Player.Instance.hp}");
             Console.WriteLine($"Gold : {Player.Instance.gold}");
             Console.WriteLine("─────────────────────────");
