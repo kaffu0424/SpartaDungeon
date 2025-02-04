@@ -12,8 +12,8 @@ namespace SpartaDungeon
         public JobType job  { get; set; }
 
         public int level    { get; set; }
-        public float damage   { get; set; }
-        public float defense  { get; set; }
+        public int damage   { get; set; }
+        public int defense  { get; set; }
         public int hp       { get; set; }
         public int gold     { get; set; }
 
@@ -28,6 +28,21 @@ namespace SpartaDungeon
             gold = 1000;
 
             inventory = new Inventory();
+        }
+
+        public int GetArmorStat()
+        {
+            if (inventory.equipedArmor == null)
+                return 0;
+            else
+                return inventory.equipedArmor.defense;
+        }
+        public int GetWeaponStat()
+        {
+            if (inventory.equipedWeapon == null)
+                return 0;
+            else
+                return inventory.equipedWeapon.damage;
         }
     }
 }
