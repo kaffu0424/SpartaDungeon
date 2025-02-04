@@ -11,14 +11,13 @@ namespace SpartaDungeon
         private bool onBuy;
         private bool onSell;
 
-        private bool onMessage;
-        private string message;
-        private ConsoleColor messageColor;
-
+        private Shop shop;
         public ShopScene()
         {
             onBuy = false;
             onSell = false;
+
+            shop = new Shop();
         }
 
         public override void Print()
@@ -43,7 +42,7 @@ namespace SpartaDungeon
             Console.WriteLine($"{Player.Instance.gold} G");
             Console.WriteLine("─────────────────────────");
             Console.WriteLine("[아이템 목록]");
-            PrintItemList();
+            shop.PrintItemList();
             Console.WriteLine("─────────────────────────");
 
             Console.WriteLine("1. 아이템 구매");
@@ -77,20 +76,16 @@ namespace SpartaDungeon
             Console.WriteLine($"{Player.Instance.gold} G");
             Console.WriteLine("─────────────────────────");
             Console.WriteLine("[아이템 목록]");
-            PrintItemList(true);
+            shop.PrintItemList(true);
             Console.WriteLine("─────────────────────────");
 
             Console.WriteLine("0. 나가기");
 
-            if (onMessage)
-            {
-                SceneManager.Instance.PlayerMessage(message, messageColor);
-                onMessage = false;
-            }
+            shop.ShopMessage();
 
             if (!SceneManager.Instance.SceneInputCommand(out int intCommand))
                 return;
-
+            
             switch (intCommand)
             {
                 case 0:
@@ -98,9 +93,7 @@ namespace SpartaDungeon
                     break;
 
                 default:
-                    onMessage = true;
-                    message = "잘못된 입력입니다.";
-                    messageColor = ConsoleColor.Red;
+                    shop.BuyItem(intCommand);
                     break;
             }
         }
@@ -115,12 +108,10 @@ namespace SpartaDungeon
             Console.WriteLine($"{Player.Instance.gold} G");
             Console.WriteLine("─────────────────────────");
             Console.WriteLine("[아이템 목록]");
-            PrintItemList(true);
+            shop.PrintItemList(true);
             Console.WriteLine("─────────────────────────");
 
             Console.WriteLine("0. 나가기");
-
-
 
             if (!SceneManager.Instance.SceneInputCommand(out int intCommand))
                 return;
@@ -130,23 +121,6 @@ namespace SpartaDungeon
                 case 0:
                     onSell = false;
                     break;
-            }
-        }
-
-        private void PrintItemList(bool _isNumber = false)
-        {
-            int? number;
-            for(int i = 0; i < ItemManager.Instance.itemLength; i++)
-            {
-                number = _isNumber ? i + 1 : null;
-                
-                Console.Write($"- {number} {ItemManager.Instance.items[i].ItemInfo()}");
-
-                if (Player.Instance.inventory[i] == null)
-                    Console.WriteLine($"  | {ItemManager.Instance.itemPrice[i]}G");
-
-                else
-                    Console.WriteLine("  | 구매완료");
             }
         }
     }
