@@ -14,20 +14,14 @@ namespace SpartaDungeon
 
             Console.WriteLine("스파르타 마을에 오신 여러분 환영합니다.");
             Console.WriteLine("이곳에서 던전으로 들어가기전 활동을 할 수 있습니다.\n");
-
+            Console.WriteLine("─────────────────────────");
             Console.WriteLine("1. 상태보기");
             Console.WriteLine("2. 인벤토리");
             Console.WriteLine("3. 상점");
             Console.WriteLine("4. 던전입장");
             Console.WriteLine("5. 휴식하기");
-
-            Console.WriteLine("\n원하시는 행동을 입력해주세요.");
-
-            Console.Write("> ");
-            string command = Console.ReadLine();
-
-            // 입력 확인
-            if (!int.TryParse(command, out int intCommand))
+            Console.WriteLine("─────────────────────────");
+            if (!SceneManager.Instance.SceneInputCommand(out int intCommand))
                 return;
 
             switch(intCommand)

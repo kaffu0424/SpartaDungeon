@@ -36,5 +36,19 @@ namespace SpartaDungeon
         {
             currentScene = scenes[(int)_name];
         }
+
+        public bool SceneInputCommand(out int intCommand)
+        {
+            Console.WriteLine("\n원하시는 행동을 입력해주세요.");
+
+            Console.Write("> ");
+            string command = Console.ReadLine();
+
+            // 숫자입력 확인
+            if (int.TryParse(command, out intCommand))
+                return true;
+
+            return false;
+        }
     }
 }

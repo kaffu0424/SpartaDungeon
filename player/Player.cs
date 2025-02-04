@@ -25,9 +25,24 @@ namespace SpartaDungeon
             damage = 10;
             defense = 5;
             hp = 100;
-            gold = 1500;
+            gold = 1000;
 
             inventory = new Inventory();
+        }
+
+        public int GetArmorStat()
+        {
+            if (inventory.equipedArmor == null)
+                return 0;
+            else
+                return inventory.equipedArmor.defense;
+        }
+        public int GetWeaponStat()
+        {
+            if (inventory.equipedWeapon == null)
+                return 0;
+            else
+                return inventory.equipedWeapon.damage;
         }
     }
 }
