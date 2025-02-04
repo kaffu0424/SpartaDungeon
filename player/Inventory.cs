@@ -13,10 +13,12 @@ namespace SpartaDungeon
         public Item this[int index]
         {
             get { return inventory[index]; }
+            set { inventory[index] = value; }
         }
 
-        private Armor? equipedArmor;
-        private Weapon? equipedWeapon;
+        public Armor? equipedArmor { get; private set; }
+        public Weapon? equipedWeapon { get; private set; }
+
         public Inventory()
         {
             int length = Enum.GetValues(typeof(ItemName)).Length;
@@ -85,39 +87,48 @@ namespace SpartaDungeon
                 if (inventory[i] == null)
                     continue;
 
-                // 입력한 순서의 아이템일때
-                if(_inputCount == itemCount)
+                if (_inputCount != itemCount)
                 {
-                    switch (inventory[i].itemType)
-                    {
-                        case ItemType.Armor:
-                            // 선택된 방어구가 착용중인 방어구와 같을때 착용해제
-                            if (equipedArmor == (Armor)inventory[i])
-                                equipedArmor = null;
-                            // 착용
-                            else
-                                equipedArmor = (Armor)inventory[i];
-                            break;
-
-                        case ItemType.Weapon:
-                            // 선택된 무기가 착용중인 무기와 같을때 착용해제
-                            if (equipedWeapon == (Weapon)inventory[i])
-                                equipedWeapon = null;
-                            //착용
-                            else
-                                equipedWeapon = (Weapon)inventory[i];
-                            break;
-                    }
-                    break;
+                    itemCount++;
+                    continue;
                 }
 
-                itemCount++;
+                switch (inventory[i].itemType)
+                {
+                    case ItemType.Armor:
+                        // 선택된 방어구가 착용중인 방어구와 같을때 착용해제
+                        if (equipedArmor == (Armor)inventory[i])
+                            equipedArmor = null;
+                        // 착용
+                        else
+                            equipedArmor = (Armor)inventory[i];
+                        break;
+
+                    case ItemType.Weapon:
+                        // 선택된 무기가 착용중인 무기와 같을때 착용해제
+                        if (equipedWeapon == (Weapon)inventory[i])
+                            equipedWeapon = null;
+                        //착용
+                        else
+                            equipedWeapon = (Weapon)inventory[i];
+                        break;
+                }
+
+                break;
             }
         }
 
         public void AddItem(int _index)
         {
             inventory[_index] = ItemManager.Instance.items[_index];
+        }
+
+        public void Unequip(ItemType _type)
+        {
+            if (_type == ItemType.Armor)
+                equipedArmor = null;
+            else
+                equipedWeapon = null;
         }
     }
 }

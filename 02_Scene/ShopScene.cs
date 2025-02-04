@@ -12,6 +12,7 @@ namespace SpartaDungeon
         private bool onSell;
 
         private Shop shop;
+
         public ShopScene()
         {
             onBuy = false;
@@ -82,7 +83,6 @@ namespace SpartaDungeon
             Console.WriteLine("0. 나가기");
 
             shop.ShopMessage();
-
             if (!SceneManager.Instance.SceneInputCommand(out int intCommand))
                 return;
             
@@ -108,11 +108,12 @@ namespace SpartaDungeon
             Console.WriteLine($"{Player.Instance.gold} G");
             Console.WriteLine("─────────────────────────");
             Console.WriteLine("[아이템 목록]");
-            shop.PrintItemList(true);
+            shop.SellItemList();
             Console.WriteLine("─────────────────────────");
 
             Console.WriteLine("0. 나가기");
 
+            shop.ShopMessage();
             if (!SceneManager.Instance.SceneInputCommand(out int intCommand))
                 return;
 
@@ -120,6 +121,9 @@ namespace SpartaDungeon
             {
                 case 0:
                     onSell = false;
+                    break;
+                default:
+                    shop.SellItem(intCommand);
                     break;
             }
         }

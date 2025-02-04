@@ -8,14 +8,17 @@ namespace SpartaDungeon
 {
     public class Shop
     {
-        public bool onMessage;
-        public string message;
-        public ConsoleColor messageColor;
-        public ConsoleColor defaultColor;
+        private bool onMessage;
+        private string message;
+        private ConsoleColor messageColor;
+        private ConsoleColor defaultColor;
+
+        private float sellRatio;
 
         public Shop() 
         {
             defaultColor = Console.ForegroundColor;
+            sellRatio = 0.85f;
         }
 
         public void BuyItem(int _num)
@@ -58,6 +61,51 @@ namespace SpartaDungeon
             Player.Instance.inventory.AddItem(itemIndex);
         }
 
+        public void SellItem(int _num)
+        {
+            onMessage = true;
+            int itemCount = 1;
+
+            for(int i = 0; i < ItemManager.Instance.itemLength; i++)
+            {
+                if (Player.Instance.inventory[i] == null)
+                    continue;
+
+                if (_num != itemCount)
+                {
+                    itemCount++;
+                    continue;
+                }
+                // 판매된 아이템이 착용중인 아이템인지 확인 및 착용해제
+                // 판매된 아이템 -> null
+                switch (Player.Instance.inventory[i].itemType)
+                {
+                    case ItemType.Armor:
+                        if (Player.Instance.inventory[i] == Player.Instance.inventory.equipedArmor)
+                            Player.Instance.inventory.Unequip(ItemType.Armor);
+                        break;
+                    case ItemType.Weapon:
+                        if (Player.Instance.inventory[i] == Player.Instance.inventory.equipedWeapon)
+                            Player.Instance.inventory.Unequip(ItemType.Weapon);
+                        break;
+                }
+
+                int getGold = (int)(ItemManager.Instance.itemPrice[i] * sellRatio);
+
+                // 판매된 아이템 -> null , Gold 획득
+                Player.Instance.inventory[i] = null;
+                Player.Instance.gold += getGold;
+
+                message = $"판매되었습니다. ( + {getGold}G)";
+                messageColor = ConsoleColor.Blue;
+                return;
+            }
+
+            // 잘못된 입력으로 판매되지않았을때
+            message = "잘못된 입력입니다";
+            messageColor = ConsoleColor.Red;
+        }
+
         public void PrintItemList(bool _isNumber = false)
         {
             int? number;
@@ -72,6 +120,18 @@ namespace SpartaDungeon
 
                 else
                     Console.WriteLine("  | 구매완료");
+            }
+        }
+        public void SellItemList()
+        {
+            int num = 1;
+            for (int i = 0; i < ItemManager.Instance.itemLength; i++)
+            {
+                if (Player.Instance.inventory[i] == null)
+                    continue;
+
+                Console.Write($"- {num++} {ItemManager.Instance.items[i].ItemInfo()}");
+                Console.WriteLine($"  | {(int)(ItemManager.Instance.itemPrice[i] * sellRatio)}G");
             }
         }
 
