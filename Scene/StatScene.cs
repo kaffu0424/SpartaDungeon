@@ -30,13 +30,7 @@ namespace SpartaDungeon
 
             Console.WriteLine("0. 나가기");
 
-            Console.WriteLine("\n원하시는 행동을 입력해주세요.");
-
-            Console.Write("> ");
-            string command = Console.ReadLine();
-
-            // 입력 확인
-            if (!int.TryParse(command, out int intCommand))
+            if (!SceneManager.Instance.SceneInputCommand(out int intCommand))
                 return;
 
             if (intCommand == 0)
