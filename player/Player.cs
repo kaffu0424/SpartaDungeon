@@ -25,7 +25,7 @@ namespace SpartaDungeon
             damage = 10;
             defense = 5;
             hp = 100;
-            gold = 10000500;
+            gold = 1000;
 
             inventory = new Inventory();
         }

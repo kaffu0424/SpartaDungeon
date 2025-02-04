@@ -11,15 +11,9 @@ namespace SpartaDungeon
         private bool onMessage;
         private string message;
         private ConsoleColor messageColor;
-        private ConsoleColor defaultColor;
+        private ConsoleColor defaultColor = Console.ForegroundColor;
 
-        private float sellRatio;
-
-        public Shop() 
-        {
-            defaultColor = Console.ForegroundColor;
-            sellRatio = 0.85f;
-        }
+        private float sellRatio = 0.85f;
 
         public void BuyItem(int _num)
         {
@@ -122,6 +116,7 @@ namespace SpartaDungeon
                     Console.WriteLine("  | 구매완료");
             }
         }
+
         public void SellItemList()
         {
             int num = 1;
