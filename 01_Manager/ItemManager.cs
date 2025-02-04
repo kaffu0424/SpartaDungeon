@@ -37,10 +37,5 @@ namespace SpartaDungeon
             itemPrice[(int)ItemName.BronzeAxe]      = 1500;
             itemPrice[(int)ItemName.SpartaSpear]    = 3000;
         }
-
-        public Item GetItemReference(ItemName _name)
-        {
-            return items[(int)_name];
-        }
     }
 }
