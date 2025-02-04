@@ -12,8 +12,8 @@ namespace SpartaDungeon
         public JobType job  { get; set; }
 
         public int level    { get; set; }
-        public int damage   { get; set; }
-        public int defense  { get; set; }
+        public float damage   { get; set; }
+        public float defense  { get; set; }
         public int hp       { get; set; }
         public int gold     { get; set; }
 
