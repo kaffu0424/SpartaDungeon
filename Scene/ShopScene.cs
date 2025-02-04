@@ -11,6 +11,10 @@ namespace SpartaDungeon
         private bool onBuy;
         private bool onSell;
 
+        private bool onMessage;
+        private string message;
+        private ConsoleColor messageColor;
+
         public ShopScene()
         {
             onBuy = false;
@@ -78,6 +82,12 @@ namespace SpartaDungeon
 
             Console.WriteLine("0. 나가기");
 
+            if (onMessage)
+            {
+                SceneManager.Instance.PlayerMessage(message, messageColor);
+                onMessage = false;
+            }
+
             if (!SceneManager.Instance.SceneInputCommand(out int intCommand))
                 return;
 
@@ -85,6 +95,12 @@ namespace SpartaDungeon
             {
                 case 0:
                     onBuy = false;
+                    break;
+
+                default:
+                    onMessage = true;
+                    message = "잘못된 입력입니다.";
+                    messageColor = ConsoleColor.Red;
                     break;
             }
         }
@@ -103,6 +119,8 @@ namespace SpartaDungeon
             Console.WriteLine("─────────────────────────");
 
             Console.WriteLine("0. 나가기");
+
+
 
             if (!SceneManager.Instance.SceneInputCommand(out int intCommand))
                 return;

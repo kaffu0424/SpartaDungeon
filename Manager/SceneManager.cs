@@ -50,5 +50,14 @@ namespace SpartaDungeon
 
             return false;
         }
+
+        public void PlayerMessage(string _message, ConsoleColor _color)
+        {
+            ConsoleColor defaultColor = Console.ForegroundColor;
+
+            Console.ForegroundColor = _color;
+            Console.WriteLine($"\n{_message}");
+            Console.ForegroundColor = defaultColor; 
+        }
     }
 }
