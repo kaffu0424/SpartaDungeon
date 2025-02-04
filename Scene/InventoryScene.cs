@@ -78,6 +78,10 @@ namespace SpartaDungeon
                 case 0:
                     onEquip = false;
                     break;
+
+                default:
+                    Player.Instance.inventory.Equipment(intCommand);
+                    break;
             }
         }
     }

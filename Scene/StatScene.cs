@@ -13,16 +13,21 @@ namespace SpartaDungeon
             Console.Clear();
             Console.WriteLine("상태보기");
             Console.WriteLine("캐릭터의 정보가 표시됩니다.");
+
             Console.WriteLine("─────────────────────────");
             Console.WriteLine($"Lv. {Player.Instance.level}");
             Console.WriteLine($"{Player.Instance.name} ( {Player.Instance.job} )");
+
             Console.Write($"공격력 : {Player.Instance.damage}");
             Player.Instance.inventory.WeaponStat();
+
             Console.Write($"방어력 : {Player.Instance.defense}");
             Player.Instance.inventory.ArmorStat();
+
             Console.WriteLine($"체 력 : {Player.Instance.hp}");
             Console.WriteLine($"Gold : {Player.Instance.gold}");
             Console.WriteLine("─────────────────────────");
+
             Console.WriteLine("0. 나가기");
 
             Console.WriteLine("\n원하시는 행동을 입력해주세요.");

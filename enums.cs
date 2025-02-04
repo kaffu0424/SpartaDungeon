@@ -32,4 +32,10 @@ namespace SpartaDungeon
         BronzeAxe,
         SpartaSpear
     }
+
+    public enum ItemType
+    {
+        Armor,
+        Weapon
+    }
 }
