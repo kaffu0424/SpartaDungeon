@@ -10,6 +10,10 @@ namespace SpartaDungeon
     public class Inventory
     {
         private Item[] inventory;
+        public Item this[int index]
+        {
+            get { return inventory[index]; }
+        }
 
         private Armor? equipedArmor;
         private Weapon? equipedWeapon;
