@@ -110,18 +110,14 @@ namespace SpartaDungeon
             Console.WriteLine("─────────────────────────");
             Console.WriteLine("0. 나가기");
 
+            //if (!SceneManager.Instance.SceneInputCommand(out int intCommand))
+            //    return;
+            Console.ReadLine();
 
-            if (!SceneManager.Instance.SceneInputCommand(out int intCommand))
-                return;
-
-            if (intCommand == 0)
-            {
-                // 던전 결과 반영 추가
-                Player.Instance.hp -= hpDecrease;
-                Player.Instance.gold += clearGold;
-                onResult = false;
-                SceneManager.Instance.ChangeScene(SceneName.LobbyScene);
-            }
+            Player.Instance.hp -= hpDecrease;
+            Player.Instance.gold += clearGold;
+            onResult = false;
+            SceneManager.Instance.ChangeScene(SceneName.LobbyScene);
 
         }
     }
