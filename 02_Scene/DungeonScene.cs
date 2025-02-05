@@ -78,7 +78,7 @@ namespace SpartaDungeon
             string dungeonDescription = "축하합니다!!\n던전을 클리어 하였습니다.";
 
             int dungeon = dungeonDefense[_dungeonLevel - 1];            // 던전 권장 방어력
-            int playerDefense = Player.Instance.defense;                // 플레이어 방어력
+            int playerDefense = (int)Player.Instance.defense;                // 플레이어 방어력
             int itemDefense = Player.Instance.GetArmorStat();           // 플레이어 장비 방어력
 
             int hpOffset = dungeon - (playerDefense + itemDefense);     // hp감소량 offset
@@ -116,6 +116,7 @@ namespace SpartaDungeon
 
             Player.Instance.hp -= hpDecrease;
             Player.Instance.gold += clearGold;
+            Player.Instance.AddExp();
             onResult = false;
             SceneManager.Instance.ChangeScene(SceneName.LobbyScene);
 

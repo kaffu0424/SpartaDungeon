@@ -8,26 +8,41 @@ namespace SpartaDungeon
 {
     public class Player : Singleton<Player>
     {
-        public string name  { get; set; }
-        public JobType job  { get; set; }
+        public string name      { get; set; }
+        public JobType job      { get; set; }
 
-        public int level    { get; set; }
-        public int damage   { get; set; }
-        public int defense  { get; set; }
-        public int hp       { get; set; }
-        public int gold     { get; set; }
+        public int level        { get; set; }
+        public int exp          { get; set; }
+        public float damage     { get; set; }
+        public float defense    { get; set; }
+        public int hp           { get; set; }
+        public int gold         { get; set; }
 
         public Inventory inventory { get; set; }
 
         public Player()
         {
             level = 1;
+            exp = 0;
             damage = 10;
             defense = 5;
             hp = 100;
             gold = 1000;
 
             inventory = new Inventory();
+        }
+
+        public void AddExp()
+        {
+            exp++;
+            if (exp == level)
+            {
+                level++;
+                exp = 0;
+
+                damage += 0.5f;
+                defense += 1;
+            }
         }
 
         public int GetArmorStat()
