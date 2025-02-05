@@ -15,7 +15,7 @@ namespace SpartaDungeon
         private ConsoleColor defaultColor = Console.ForegroundColor;
 
         private int healPrice = 500;
-        public override void Print()
+        public override void Update()
         {
             Console.Clear();
             Console.WriteLine("휴식하기");

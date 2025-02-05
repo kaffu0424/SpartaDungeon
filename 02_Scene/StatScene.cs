@@ -8,9 +8,10 @@ namespace SpartaDungeon
 {
     public class StatScene : Scene
     {
-        public override void Print()
+        public override void Update()
         {
             Console.Clear();
+
             Console.WriteLine("상태보기");
             Console.WriteLine("캐릭터의 정보가 표시됩니다.");
 

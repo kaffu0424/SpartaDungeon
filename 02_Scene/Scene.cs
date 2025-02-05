@@ -8,6 +8,6 @@ namespace SpartaDungeon
 {
     public abstract class Scene
     {
-        public abstract void Print();
+        public abstract void Update();
     }
 }

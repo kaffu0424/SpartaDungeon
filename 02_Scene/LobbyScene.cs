@@ -8,7 +8,7 @@ namespace SpartaDungeon
 {
     public class LobbyScene : Scene
     {
-        public override void Print()
+        public override void Update()
         {
             Console.Clear();
 

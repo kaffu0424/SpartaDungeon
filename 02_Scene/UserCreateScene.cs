@@ -18,7 +18,7 @@ namespace SpartaDungeon
             isJobCheck = false;
         }
 
-        public override void Print()
+        public override void Update()
         {
             LoadData();
             CreateName();

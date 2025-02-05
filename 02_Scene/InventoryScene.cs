@@ -15,7 +15,7 @@ namespace SpartaDungeon
             onEquip = false;
         }
 
-        public override void Print()
+        public override void Update()
         {
             if (onEquip)
                 equipManagement();

@@ -31,7 +31,7 @@ namespace SpartaDungeon
             dungeonPrize[2] = 2500;
         }
 
-        public override void Print()
+        public override void Update()
         {
             if (onResult)
                 DungeonResult(dungeonLevel);

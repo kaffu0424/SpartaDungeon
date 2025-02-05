@@ -21,7 +21,7 @@ namespace SpartaDungeon
             shop = new Shop();
         }
 
-        public override void Print()
+        public override void Update()
         {
             if (onBuy)
                 ShopBuy();

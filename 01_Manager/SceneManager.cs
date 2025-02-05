@@ -29,7 +29,7 @@ namespace SpartaDungeon
 
         public void ScenePrint()
         {
-            currentScene.Print();
+            currentScene.Update();
         }
 
         public void ChangeScene(SceneName _name)

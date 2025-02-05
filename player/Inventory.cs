@@ -30,8 +30,10 @@ namespace SpartaDungeon
             // 인벤토리 내 보유한 아이템 전부 출력
             foreach (Item item in inventory)
             {
-                if(item != null)
-                    Console.WriteLine(item.ItemInfo());
+                if (item == null)
+                    continue;
+
+                Console.WriteLine(item.ItemInfo());
             }
         }
 
