@@ -25,9 +25,11 @@ namespace SpartaDungeon
 
     public enum ItemName
     {
+        TrashArmor,
         NoviceArmor,
         IronArmor,
         SpartaArmor,
+        WoodenStick,
         OldSword,
         BronzeAxe,
         SpartaSpear
