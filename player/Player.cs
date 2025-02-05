@@ -11,14 +11,14 @@ namespace SpartaDungeon
         public string name      { get; set; }
         public JobType job      { get; set; }
 
-        public int level        { get; set; }
-        public int exp          { get; set; }
-        public float damage     { get; set; }
-        public float defense    { get; set; }
+        public int level        { get; private set; }
+        public int exp          { get; private set; }
+        public float damage     { get; private set; }
+        public float defense    { get; private set; }
         public int hp           { get; set; }
         public int gold         { get; set; }
 
-        public Inventory inventory { get; set; }
+        public Inventory inventory { get; private set; }
 
         public Player()
         {
