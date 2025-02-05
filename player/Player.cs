@@ -32,6 +32,7 @@ namespace SpartaDungeon
             inventory = new Inventory();
         }
 
+        // 던전 클리어 후 경험치 획득 함수
         public void AddExp()
         {
             exp++;
@@ -45,6 +46,9 @@ namespace SpartaDungeon
             }
         }
 
+        /// <summary>
+        /// 현재 착용중인 방어구의 방어력 스탯 반환 함수
+        /// </summary>
         public int GetArmorStat()
         {
             if (inventory.equipedArmor == null)
@@ -52,6 +56,10 @@ namespace SpartaDungeon
             else
                 return inventory.equipedArmor.defense;
         }
+
+        /// <summary>
+        /// 현재 착용중인 무기의 공격력 스탯 반환 함수
+        /// </summary>
         public int GetWeaponStat()
         {
             if (inventory.equipedWeapon == null)

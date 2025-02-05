@@ -15,6 +15,9 @@ namespace SpartaDungeon
 
         private float sellRatio = 0.85f;
 
+        /// <summary>
+        /// 아이템 구매 출력/입력
+        /// </summary>
         public void BuyItem(int _num)
         {
             int itemIndex = _num - 1;
@@ -55,6 +58,9 @@ namespace SpartaDungeon
             Player.Instance.inventory.AddItem(itemIndex);
         }
 
+        /// <summary>
+        /// 아이템 판매 출력/입력
+        /// </summary>
         public void SellItem(int _num)
         {
             onMessage = true;
@@ -100,6 +106,9 @@ namespace SpartaDungeon
             messageColor = ConsoleColor.Red;
         }
 
+        /// <summary>
+        /// 판매 아이템 리스트 출력
+        /// </summary>
         public void PrintItemList(bool _isNumber = false)
         {
             int? number;
@@ -117,6 +126,9 @@ namespace SpartaDungeon
             }
         }
 
+        /// <summary>
+        /// 판매 아이템 리스트 출력
+        /// </summary>
         public void SellItemList()
         {
             int num = 1;
@@ -130,6 +142,9 @@ namespace SpartaDungeon
             }
         }
 
+        /// <summary>
+        /// 추가 메세지 출력
+        /// </summary>
         public void ShopMessage()
         {
             if (!onMessage)

@@ -27,11 +27,17 @@ namespace SpartaDungeon
             ChangeScene(SceneName.UserCreateScene);
         }
 
-        public void ScenePrint()
+        /// <summary>
+        /// 현재 씬 Update
+        /// </summary>
+        public void SceneUpdate()
         {
             currentScene.Update();
         }
 
+        /// <summary>
+        /// 씬 전환 함수
+        /// </summary>
         public void ChangeScene(SceneName _name)
         {
             currentScene = scenes[(int)_name];
@@ -48,6 +54,7 @@ namespace SpartaDungeon
             if (int.TryParse(command, out intCommand))
                 return true;
 
+            // 숫자가 아닌것이 입력됨
             return false;
         }
     }

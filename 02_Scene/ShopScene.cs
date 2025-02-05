@@ -24,13 +24,13 @@ namespace SpartaDungeon
         public override void Update()
         {
             if (onBuy)
-                ShopBuy();
+                ShopBuy();      // 아이템 판매
 
-            else if (onSell)
-                ShopSell();
+            else if (onSell)        
+                ShopSell();     // 아이템 구매
 
             else
-                ShopMain();
+                ShopMain();     // 상점 메인
         }
 
         private void ShopMain()

@@ -37,6 +37,10 @@ namespace SpartaDungeon
             }
         }
 
+        /// <summary>
+        /// 장비 정보 출력함수
+        /// 착용중인 장비는 [E] 포함해서 출력
+        /// </summary>
         public void ShowEquip()
         {
             int itemCount = 1;
@@ -62,6 +66,9 @@ namespace SpartaDungeon
             }
         }
 
+        /// <summary>
+        /// 방어구의 추가스탯 출력 함수
+        /// </summary>
         public void ArmorStat()
         {
             string stat = "";
@@ -71,6 +78,9 @@ namespace SpartaDungeon
             Console.WriteLine($"{stat}");
         }
 
+        /// <summary>
+        /// 무기의 추가스탯 출력 함수
+        /// </summary>
         public void WeaponStat()
         {
             string stat = "";
@@ -80,6 +90,9 @@ namespace SpartaDungeon
             Console.WriteLine($"{stat}");
         }
 
+        /// <summary>
+        /// 장비 착용 / 착용해제 함수
+        /// </summary>
         public void Equipment(int _inputCount)
         {
             int itemCount = 1;
@@ -120,11 +133,17 @@ namespace SpartaDungeon
             }
         }
 
+        /// <summary>
+        /// 아이템 추가함수
+        /// </summary>
         public void AddItem(int _index)
         {
             inventory[_index] = ItemManager.Instance.items[_index];
         }
 
+        /// <summary>
+        /// 장비 착용해제 함수
+        /// </summary>
         public void Unequip(ItemType _type)
         {
             if (_type == ItemType.Armor)

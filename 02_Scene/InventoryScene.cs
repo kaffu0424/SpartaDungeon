@@ -18,9 +18,9 @@ namespace SpartaDungeon
         public override void Update()
         {
             if (onEquip)
-                equipManagement();
+                equipManagement();      // 장비 관리
             else
-                InventoryPrint();
+                InventoryPrint();       // 인벤토리
         }
         private void InventoryPrint()
         {

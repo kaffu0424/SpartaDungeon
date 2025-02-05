@@ -20,9 +20,10 @@ namespace SpartaDungeon
 
         public override void Update()
         {
-            CreateName();
-            SelectJob();
+            CreateName();   // 닉네임 생성
+            SelectJob();    // 직업 선택
 
+            // 닉네임과 직업 전부 완료되었을때 LobbyScene으로 이동
             if (isNameCheck && isJobCheck)
                 SceneManager.Instance.ChangeScene(SceneName.LobbyScene);
         }

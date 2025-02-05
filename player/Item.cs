@@ -18,6 +18,7 @@ namespace SpartaDungeon
             itemDescription = _description;
         }
 
+        // 아이템 정보 문자열 반환 함수
         public abstract string ItemInfo();
     }
 

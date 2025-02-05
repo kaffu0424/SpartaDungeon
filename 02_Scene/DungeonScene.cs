@@ -34,9 +34,9 @@ namespace SpartaDungeon
         public override void Update()
         {
             if (onResult)
-                DungeonResult(dungeonLevel);
+                DungeonResult(dungeonLevel);    // 던전 결과
             else
-                DungeonMain();
+                DungeonMain();                  // 던전 입장 전
         }
 
         private void DungeonMain()
