@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SpartaDungeon.Module;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
@@ -20,17 +21,11 @@ namespace SpartaDungeon
 
         public override void Update()
         {
-            LoadData();
             CreateName();
             SelectJob();
 
             if (isNameCheck && isJobCheck)
                 SceneManager.Instance.ChangeScene(SceneName.LobbyScene);
-        }
-
-        private void LoadData()
-        {
-            // 데이터 불러오기
         }
 
         private void CreateName()
